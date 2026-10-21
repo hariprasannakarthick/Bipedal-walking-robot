@@ -1,0 +1,42 @@
+BIPED ROBOT REBUILD PACKAGE
+===========================
+
+Files
+-----
+Biped_Robot_Rebuild_Technical_Report.docx
+    Formal preliminary engineering report. Unknowns are labelled.
+
+biped_robot_staged_firmware.ino
+    Teensy 4.0 commissioning firmware for PCA9685 + MPU6050.
+    It does not implement autonomous walking.
+
+Before powering anything
+------------------------
+1. Confirm exact servo model and allowed voltage. Do not connect 8.4 V unless
+   the servo datasheet explicitly permits it.
+2. Verify the PCA9685 breakout's VCC/V+ arrangement and official Teensy 4.0
+   I2C pins. Avoid 5 V I2C pull-ups on Teensy pins.
+3. Verify servo pulse range and neutral position one actuator at a time.
+4. Support or tether the robot and keep a physical power cutoff reachable.
+5. Confirm IMU axis/sign in the actual mounting orientation.
+6. Update channel labels and pulse limits after physical inspection.
+
+Libraries
+---------
+- Adafruit PWM Servo Driver Library
+- Adafruit MPU6050
+- Adafruit Unified Sensor
+- Adafruit BusIO
+
+Serial commands at 115200 baud
+------------------------------
+h             help
+s             status
+d             disarm all servo outputs
+a             arm outputs when IMU is healthy and pitch is near zero
+n             command stored neutral pulses
+j <ch> <deg>  command one servo channel (0-5), logical 0-180 degrees
+p <ch> <ticks> command direct PCA9685 pulse ticks within configured limits
+c             recalibrate gyro bias while stationary
+
+This firmware is a safe commissioning scaffold, not a validated walking controller.
