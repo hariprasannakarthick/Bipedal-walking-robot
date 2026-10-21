@@ -131,6 +131,14 @@ Exact servo model, voltage range, peak current, speed; CAD dimensions; actual se
 - [`docs/SETUP_NOTES.txt`](docs/SETUP_NOTES.txt)
 - [`hardware/`](hardware/) — add wiring diagrams and dimensioned CAD exports
 - [`media/`](media/) — add photos and test videos you have permission to publish
+- ## 🎥 Project Demonstration
+
+The `media/` directory contains the original biped robot reference video used to study the mechanical structure and reconstruct the CAD assembly.
+
+- **Reference video:** `731164FD-1E5C-4FB6-B156-3554243AEC3E.MP4`
+- **Reconstructed CAD:** `CAD/biped_robot_reconstructed_full_assembly.step`
+
+**Note:** The CAD model is a reconstruction based on visual reference. Dimensions and mechanical details must be verified against the physical robot before manufacturing.
 
 ## License
 
